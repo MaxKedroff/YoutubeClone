@@ -43,11 +43,25 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/c/<username>' => '/channel/view'
             ],
         ],
         'assetManager' =>[
             'appendTimestamp' => true
-        ]
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            // Настройки SMTP сервера
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.yourdomain.com',
+                'username' => 'your_username',
+                'password' => 'your_password',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
 
     ],
     'params' => $params,

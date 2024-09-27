@@ -25,6 +25,12 @@ use common\models\Video;
                 ])?>
                 <?php \yii\widgets\Pjax::end()?>
             </div>
+            <div>
+                <p><?php echo \yii\helpers\Html::a($model->createdBy->username, [
+                        '/channel/view', 'username' => $model->createdBy->username
+                    ]) ?></p>
+                <?php echo \yii\helpers\Html::encode($model->description) ?>
+            </div>
         </div>
     </div>
     <div class="col-sm-4">

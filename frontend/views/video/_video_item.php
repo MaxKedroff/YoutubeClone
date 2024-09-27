@@ -16,7 +16,9 @@
     <div class="card-body p-2">
         <h5 class="card-title m-0"><?php echo $model->title?></h5>
         <p class="card-text m-0">
-            <?php echo $model->createdBy->username ?>
+            <?php echo \yii\helpers\Html::a($model->createdBy->username, [
+                '/channel/view', 'username' => $model->createdBy->username
+            ]) ?>
         </p>
         <p class="card-text m-0">
            <?php echo $model->getViews()->count() ?> views . <?php echo Yii::$app->formatter->asRelativeTime($model->created_at)?>
